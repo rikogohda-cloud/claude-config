@@ -13,8 +13,7 @@ allowed-tools:
 週次で財務関連メールを収集・要約し、Slack DMで通知する非対話コマンド。
 
 ## Identity
-- naoki.ishigami@up-sider.com / 石神直樹 / UPSIDER執行役員・公認会計士
-- naoki.ishigami@upsidercap.com / 石神直樹 / UPSIDER Capital
+- riko.gohda@up-sider.com / 合田莉子 / UPSIDER
 
 ## Slack DM Channel (self)
 - UPSIDER本体: `UD44KMYCB`
@@ -26,22 +25,21 @@ allowed-tools:
 
 **1a. 財務担当（kai.tamura）からのメール**
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe gmail messages search "from:kai.tamura newer_than:7d" --max 20 --include-body --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe gmail messages search "from:kai.tamura newer_than:7d" --max 20 --include-body --json
 ```
 
 **1b. UPSIDER本体 - 財務キーワード**
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe gmail messages search "(借入 OR 融資 OR GMV OR 金利 OR 資金繰り OR キャッシュフロー OR 支払いドットコム OR ITSS) newer_than:7d" --max 20 --include-body --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe gmail messages search "(借入 OR 融資 OR GMV OR 金利 OR 資金繰り OR キャッシュフロー OR 支払いドットコム OR ITSS) newer_than:7d" --max 20 --include-body --json
 ```
 
 **1c. Capital - 財務キーワード**
 ```bash
-GOG_ACCOUNT=naoki.ishigami@upsidercap.com gog.exe gmail messages search "(ファンド OR UBDF OR 借入 OR 融資 OR 金利 OR LP OR 出資 OR コミットメント) newer_than:7d" --max 20 --include-body --json
 ```
 
 **1d. 銀行ドメインからのメール**
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe gmail messages search "(from:mizuho-bk.co.jp OR from:aozorabank.co.jp OR from:bk.mufg.jp OR from:smbc.co.jp OR from:shokochukin.co.jp OR from:resonabank.co.jp) newer_than:7d" --max 20 --include-body --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe gmail messages search "(from:mizuho-bk.co.jp OR from:aozorabank.co.jp OR from:bk.mufg.jp OR from:smbc.co.jp OR from:shokochukin.co.jp OR from:resonabank.co.jp) newer_than:7d" --max 20 --include-body --json
 ```
 
 ## Phase 2: 分類・要約

@@ -21,7 +21,7 @@ allowed-tools:
 - **回収リスト**: SpreadsheetId `1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA`
 - **延滞MASTER**: SpreadsheetId `18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk`
 - **Legal管理**: SpreadsheetId `10kATvj1sMOLGt8GGn718Uil9KmvtDbR9OVZq2mF8fVw`
-- **GOG_ACCOUNT**: `naoki.ishigami@up-sider.com`
+- **GOG_ACCOUNT**: `riko.gohda@up-sider.com`
 
 ## Notion 投稿先
 - **Parent page**: `30693c7ce32d8008a6f5cedf3a00f100`
@@ -33,35 +33,35 @@ allowed-tools:
 
 ### 1a. 回収率（月次推移）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "回収率(社数/金額)!A1:AQ15" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "回収率(社数/金額)!A1:AQ15" --plain
 ```
 
 ### 1b. 行動指標
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "行動指標!A1:R31" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "行動指標!A1:R31" --plain
 ```
 
 ### 1c. 複数月延滞（上位案件）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "複数月延滞!A1:T50" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "複数月延滞!A1:T50" --plain
 ```
 
 ### 1d. GP集計表
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "GP集計表(10月以降) !A1:Z30" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "GP集計表(10月以降) !A1:Z30" --plain
 ```
 
 ### 1e. 最新の回収状況シート
 メタデータからシート名一覧を取得し、最新の`回収状況_YYYYMMDD銀行振込`と`回収状況_YYYYMMDD口座振替`シートを特定:
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets metadata 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets metadata 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA --json
 ```
 → 最新2シートの先頭5行（サマリー行: 未回収件数・未回収金額）を取得:
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "<最新銀行振込シート名>!A1:T5" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "<最新銀行振込シート名>!A1:T5" --plain
 ```
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "<最新口座振替シート名>!A1:T5" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "<最新口座振替シート名>!A1:T5" --plain
 ```
 
 ### 1f. PRESIDENT年会費（最新）
@@ -69,31 +69,31 @@ GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1x
 
 ### 1g. 延滞率・Gross Exposure（延滞MASTERのSummaryシート）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk "Summary!A1:AR20" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk "Summary!A1:AR20" --plain
 ```
 → 当月請求額、延滞債権(DPD1+)、Gross Exposure、延滞率を直近6ヶ月分抽出
 
 ### 1h. DPDエイジング・引当金内訳（延滞MASTERの引当金内訳シート）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk "引当金内訳!A1:BC20" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk "引当金内訳!A1:BC20" --plain
 ```
 → DPD30以下、DPD31-60、DPD61-90、DPD90+ の残高と個別引当金対象を抽出
 
 ### 1i. 個別引当金（延滞MASTERの個別引当シート）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk "個別引当!A1:Z30" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk "個別引当!A1:Z30" --plain
 ```
 → 個別引当金対象企業・DPD区分・要引当額を取得
 
 ### 1j. 受任通知・破産通知（回収リストの受任通知シート）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "受任通知・破産通知!A1:Z30" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "受任通知・破産通知!A1:Z30" --plain
 ```
 → 法的手続きに移行済みの案件一覧
 
 ### 1k. 債権売却実績（延滞MASTERの債権売却シート）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk "債権売却!A1:Z20" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 18KCsBcryEx0V6UM-K3PGNyj08Tm_XtD-lCcHDaRZWWk "債権売却!A1:Z20" --plain
 ```
 
 ### 1l. 前週のNotionサマリー（差分比較用）
@@ -104,7 +104,7 @@ mcp__notion__notion-search({ query: "週次回収サマリー" })
 
 ### 1m. Legal管理シート（進行中案件）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 10kATvj1sMOLGt8GGn718Uil9KmvtDbR9OVZq2mF8fVw "管理シート本体!A1:V210" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 10kATvj1sMOLGt8GGn718Uil9KmvtDbR9OVZq2mF8fVw "管理シート本体!A1:V210" --plain
 ```
 → 全案件の基本情報（No, 社名, 担当, 弁済期限, メモ, ステータス, 延滞額, 回収額, 仮差押金額等）を取得
 → 案件ステータス列（I列）でフィルタ: 「進行中」「対応保留中」を抽出
@@ -112,7 +112,7 @@ GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 10kATvj1sMOLGt8GGn718
 
 ### 1n. Legalダッシュボード（パイプライン集計）
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe sheets get 10kATvj1sMOLGt8GGn718Uil9KmvtDbR9OVZq2mF8fVw "（作成中）ダッシュボード!A1:F15" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe sheets get 10kATvj1sMOLGt8GGn718Uil9KmvtDbR9OVZq2mF8fVw "（作成中）ダッシュボード!A1:F15" --plain
 ```
 → 仮差押手続き・本訴手続きの各ステージ別件数
 

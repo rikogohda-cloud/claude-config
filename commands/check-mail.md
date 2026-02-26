@@ -22,31 +22,28 @@ Args: $ARGUMENTS
 - For action_required, draft a reply (do not send without approval)
 
 ## Identity
-- naoki.ishigami@up-sider.com / 石神直樹 / UPSIDER執行役員・公認会計士
-- naoki.ishigami@upsidercap.com / 石神直樹 / UPSIDER Capital
+- riko.gohda@up-sider.com / 合田莉子 / UPSIDER
 
 ## Accounts
 | Alias | Email | GOG_ACCOUNT |
 |---|---|---|
-| sider | naoki.ishigami@up-sider.com | naoki.ishigami@up-sider.com |
-| cap | naoki.ishigami@upsidercap.com | naoki.ishigami@upsidercap.com |
+| sider | riko.gohda@up-sider.com | riko.gohda@up-sider.com |
 
 ## Step 1: Fetch unread mail (both accounts)
 Run in parallel:
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog gmail messages search "newer_than:7d -from:info@bank.gmo-aozora.com -from:noreply@mfkessai.co.jp -from:noreply@google.com -from:support@digital.hokkokubank.co.jp" --max 50 --include-body --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog gmail messages search "newer_than:7d -from:info@bank.gmo-aozora.com -from:noreply@mfkessai.co.jp -from:noreply@google.com -from:support@digital.hokkokubank.co.jp" --max 50 --include-body --json
 ```
 ```bash
-GOG_ACCOUNT=naoki.ishigami@upsidercap.com gog gmail messages search "newer_than:7d" --max 50 --include-body --json
 ```
 - Merge results, prefix each mail with [sider] or [cap] to indicate source account
 - sider側で除外した通知系（GMOあおぞら振込/ペイジー、MFケッサイ、北國銀行等）は別途一括アーカイブする:
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog gmail messages search "newer_than:1d from:info@bank.gmo-aozora.com OR from:noreply@mfkessai.co.jp OR from:support@digital.hokkokubank.co.jp" --max 50 --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog gmail messages search "newer_than:1d from:info@bank.gmo-aozora.com OR from:noreply@mfkessai.co.jp OR from:support@digital.hokkokubank.co.jp" --max 50 --json
 ```
 - 上記の結果のthreadIdを重複排除して即時一括アーカイブ:
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog gmail thread modify "<threadId1>" "<threadId2>" ... --remove "INBOX,UNREAD" --force
+GOG_ACCOUNT=riko.gohda@up-sider.com gog gmail thread modify "<threadId1>" "<threadId2>" ... --remove "INBOX,UNREAD" --force
 ```
 
 ## Step 2: Classification rules
@@ -75,7 +72,7 @@ GOG_ACCOUNT=<source_account> gog gmail thread modify "<threadId1>" "<threadId2>"
 - Use the same account (GOG_ACCOUNT) as the source mail's account
 
 ```bash
-ZONEINFO="C:/Users/NaokiIshigami/.local/lib/zoneinfo.zip" GOG_ACCOUNT=<source_account> gog calendar events --from <date> --to <date+1> --all --max 30
+ZONEINFO="C:/Users/rikogohda/.local/lib/zoneinfo.zip" GOG_ACCOUNT=<source_account> gog calendar events --from <date> --to <date+1> --all --max 30
 ```
 
 ```bash

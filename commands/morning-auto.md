@@ -28,8 +28,7 @@ allowed-tools:
 返信の送信やアーカイブは行わない（それは手動で /morning または /check-mail を使う）。
 
 ## Identity
-- naoki.ishigami@up-sider.com / 石神直樹 / UPSIDER執行役員・公認会計士
-- naoki.ishigami@upsidercap.com / 石神直樹 / UPSIDER Capital
+- riko.gohda@up-sider.com / 合田莉子 / UPSIDER
 
 ## Slack DM Channel (self)
 - UPSIDER本体: `UD44KMYCB`
@@ -40,18 +39,16 @@ allowed-tools:
 
 **1a. 今日のカレンダー予定**
 ```bash
-ZONEINFO="C:/Users/NaokiIshigami/.local/lib/zoneinfo.zip" GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe calendar events --from today --to tomorrow --all --max 30
+ZONEINFO="C:/Users/rikogohda/.local/lib/zoneinfo.zip" GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe calendar events --from today --to tomorrow --all --max 30
 ```
 ```bash
-ZONEINFO="C:/Users/NaokiIshigami/.local/lib/zoneinfo.zip" GOG_ACCOUNT=naoki.ishigami@upsidercap.com gog.exe calendar events --from today --to tomorrow --all --max 30
 ```
 
 **1b. 未読メール（両アカウント）**
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe gmail messages search "is:unread in:inbox" --max 50 --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe gmail messages search "is:unread in:inbox" --max 50 --json
 ```
 ```bash
-GOG_ACCOUNT=naoki.ishigami@upsidercap.com gog.exe gmail messages search "is:unread in:inbox" --max 50 --json
 ```
 
 **1c. Slack未読（両ワークスペース）**

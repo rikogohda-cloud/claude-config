@@ -17,7 +17,7 @@ auto_commit() {
 }
 
 # Config repo (~/.claude/)
-auto_commit "/c/Users/NaokiIshigami/.claude" "config"
+auto_commit "/c/Users/rikogohda/.claude" "config"
 
 # Private repo (~/.claude/private/)
-auto_commit "/c/Users/NaokiIshigami/.claude/private" "private data"
+auto_commit "/c/Users/rikogohda/.claude/private" "private data"

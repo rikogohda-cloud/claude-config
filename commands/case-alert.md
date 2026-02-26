@@ -33,14 +33,14 @@ allowed-tools:
 - **案件管理DB data source ID**: `f2680b73-eaeb-478f-8ef9-89948b775d2e`
 - **回収リスト**: `1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA`
 - **Legal管理**: `10kATvj1sMOLGt8GGn718Uil9KmvtDbR9OVZq2mF8fVw`
-- **GOG_ACCOUNT**: `naoki.ishigami@up-sider.com`
+- **GOG_ACCOUNT**: `riko.gohda@up-sider.com`
 - **Slack Ch**: `C0AFHDXP8LV`
 
 ## Step 1: データ収集
 
 ### 1a. 回収リスト: シート名一覧を取得
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog sheets metadata 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog sheets metadata 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA --json
 ```
 → 出力をファイルに保存し、`回収状況_` プレフィックスのシート名を抽出
 → **直近3ヶ月分のみ対象**（今日の日付から90日以内のYYYYMMDD）
@@ -53,7 +53,7 @@ GOG_ACCOUNT=naoki.ishigami@up-sider.com gog sheets metadata 1mFitr3VwRT7TduMcQE1
 対象シートごとに:
 1. ヘッダー行（2行目）を取得:
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "<シート名>!A2:AQ2" --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "<シート名>!A2:AQ2" --json
 ```
 2. ヘッダー行から以下の列名でインデックスを動的に特定（部分一致）:
 
@@ -72,7 +72,7 @@ GOG_ACCOUNT=naoki.ishigami@up-sider.com gog sheets get 1mFitr3VwRT7TduMcQE1xAK2O
 
 3. データ行を取得:
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "<シート名>!A3:AQ200" --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "<シート名>!A3:AQ200" --json
 ```
 → 特定したインデックスでデータを抽出
 
@@ -90,12 +90,12 @@ DB既存エントリの回収済み判定に使用する（フィルタ閾値に
 
 ### 1c. 複数月延滞シート
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "複数月延滞!A1:T100" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog sheets get 1mFitr3VwRT7TduMcQE1xAK2OSFBUW_RilPimrWFdCDA "複数月延滞!A1:T100" --plain
 ```
 
 ### 1d. Legal管理シート
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog sheets get 10kATvj1sMOLGt8GGn718Uil9KmvtDbR9OVZq2mF8fVw "管理シート本体!A1:BV210" --plain
+GOG_ACCOUNT=riko.gohda@up-sider.com gog sheets get 10kATvj1sMOLGt8GGn718Uil9KmvtDbR9OVZq2mF8fVw "管理シート本体!A1:BV210" --plain
 ```
 列マッピング（case-config.md参照）:
 - B: OrgID → orgIDでJOIN

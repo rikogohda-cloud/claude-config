@@ -16,13 +16,12 @@ Args: $ARGUMENTS
 Google Sheets からデータを取得し、KPIサマリーやレポートを生成する。
 
 ## Identity
-- naoki.ishigami / 石神直樹
+- riko.gohda / 合田莉子
 
 ## Accounts
 | Alias | GOG_ACCOUNT |
 |---|---|
-| sider | naoki.ishigami@up-sider.com |
-| cap | naoki.ishigami@upsidercap.com |
+| sider | riko.gohda@up-sider.com |
 
 ## 登録済みレポート
 

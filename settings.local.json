@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__google-sheets__get_sheet_data",
+      "Bash(python3:*)",
+      "Bash(./get_org_data_with_signal.sh:*)"
+    ]
+  }
+}

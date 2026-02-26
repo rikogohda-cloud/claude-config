@@ -35,7 +35,7 @@ Args: $ARGUMENTS
 - ユーザー承認後に返信を送信
 
 ## Identity
-- naoki.ishigami / 石神直樹 / UPSIDER執行役員・公認会計士
+- riko.gohda / 合田莉子 / UPSIDER
 - Slack display name: Nao(Naoki Ishigami)
 
 ## Workspaces

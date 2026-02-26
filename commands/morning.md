@@ -33,8 +33,7 @@ allowed-tools:
 朝の一括ブリーフィングを実行する。以下を一度にまとめて確認・報告する。
 
 ## Identity
-- naoki.ishigami@up-sider.com / 石神直樹 / UPSIDER執行役員・公認会計士
-- naoki.ishigami@upsidercap.com / 石神直樹 / UPSIDER Capital
+- riko.gohda@up-sider.com / 合田莉子 / UPSIDER
 
 ## 実行順序
 
@@ -42,18 +41,16 @@ allowed-tools:
 
 **1a. 今日のカレンダー予定**
 ```bash
-ZONEINFO="C:/Users/NaokiIshigami/.local/lib/zoneinfo.zip" GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe calendar events --from today --to tomorrow --all --max 30
+ZONEINFO="C:/Users/rikogohda/.local/lib/zoneinfo.zip" GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe calendar events --from today --to tomorrow --all --max 30
 ```
 ```bash
-ZONEINFO="C:/Users/NaokiIshigami/.local/lib/zoneinfo.zip" GOG_ACCOUNT=naoki.ishigami@upsidercap.com gog.exe calendar events --from today --to tomorrow --all --max 30
 ```
 
 **1b. 未読メール（両アカウント）**
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe gmail messages search "is:unread in:inbox" --max 100 --json
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe gmail messages search "is:unread in:inbox" --max 100 --json
 ```
 ```bash
-GOG_ACCOUNT=naoki.ishigami@upsidercap.com gog.exe gmail messages search "is:unread in:inbox" --max 100 --json
 ```
 
 **1c. Slack未読（両ワークスペース）**

@@ -31,7 +31,7 @@ Args: $ARGUMENTS
 前回の議事録・関連Slackスレッド・参加者情報を収集し、アジェンダ案を生成する。
 
 ## Identity
-- naoki.ishigami / 石神直樹 / UPSIDER執行役員・公認会計士
+- riko.gohda / 合田莉子 / UPSIDER
 
 ## 定例会議マッピング
 
@@ -47,10 +47,9 @@ Args: $ARGUMENTS
 
 If $ARGUMENTS == "next" or empty:
 ```bash
-GOG_ACCOUNT=naoki.ishigami@up-sider.com gog.exe calendar events --from now --to tomorrow --all --max 10
+GOG_ACCOUNT=riko.gohda@up-sider.com gog.exe calendar events --from now --to tomorrow --all --max 10
 ```
 ```bash
-GOG_ACCOUNT=naoki.ishigami@upsidercap.com gog.exe calendar events --from now --to tomorrow --all --max 10
 ```
 → 直近の会議を特定し、ユーザーに確認
 

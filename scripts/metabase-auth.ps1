@@ -1,4 +1,4 @@
-$email = "naoki.ishigami@up-sider.com"
+$email = "riko.gohda@up-sider.com"
 $pass = Read-Host "Metabase password" -MaskInput
 $body = @{ username = $email; password = $pass } | ConvertTo-Json
 try {
