@@ -1,0 +1,48 @@
+# Ignore everything by default
+*
+
+# Track config files
+!.gitignore
+!CLAUDE.md
+!SOUL.md
+!settings.json
+!settings.local.json
+
+# Track commands
+!commands/
+!commands/**
+
+# Track scripts
+!scripts/
+!scripts/**
+
+# Track worker files
+!daily-worker.md
+!daily-worker-v2.md
+
+# Track workflows
+!workflows/
+!workflows/**
+
+# Track cache README only (not data)
+!cache/
+cache/*
+!cache/daily/
+cache/daily/*
+!cache/daily/README.md
+
+# Never track
+private/
+plugins/
+projects/
+statsig/
+*.token
+.env
+.env.*
+*.pem
+*.key
+session-env/
+plans/
+memory/
+bin/*.pyc
+__pycache__/

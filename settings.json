@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "PYTHONUTF8": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "GO111MODULE": "on",
+    "NODE_OPTIONS": "--max-old-space-size=4096",
+    "LANG": "ja_JP.UTF-8",
+    "GOG_ACCOUNT": "naoki.ishigami@up-sider.com",
+    "SLACK_TEAM_ID": "T9J209YAG"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(go build *)",
+      "Bash(go test *)",
+      "Bash(go vet *)",
+      "Bash(go mod *)",
+      "Bash(go run *)",
+      "Bash(cargo build *)",
+      "Bash(cargo test *)",
+      "Bash(cargo clippy *)",
+      "Bash(cargo run *)",
+      "Bash(cargo fmt *)",
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(npm install *)",
+      "Bash(npx *)",
+      "Bash(pnpm *)",
+      "Bash(pytest *)",
+      "Bash(python -m pytest *)",
+      "Bash(mypy *)",
+      "Bash(uv *)",
+      "Bash(pip install *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git branch *)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git stash *)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)",
+      "Bash(git merge *)",
+      "Bash(git rebase *)",
+      "Bash(gh *)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" *)",
+      "Bash(gog.exe *)",
+      "Bash(GOG_ACCOUNT=* gog.exe *)",
+      "Bash(ls *)",
+      "Bash(dir *)",
+      "Bash(which *)",
+      "Bash(where *)",
+      "Bash(powershell.exe *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/.env)",
+      "Read(./**/.env.*)",
+      "Read(./**/credentials*)",
+      "Read(./**/secrets*)",
+      "Read(./**/*secret*)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(rm -rf *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /c/Users/NaokiIshigami/.claude/scripts/block-exfiltration.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /c/Users/NaokiIshigami/.claude/scripts/post-send-checklist.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if the written/edited content contains hardcoded secrets (API keys like sk-xxx or AKIA*, passwords, tokens, private keys, connection strings). Respond with {\"ok\": true} if safe, or {\"ok\": false, \"reason\": \"description of the secret found\"} if secrets are detected."
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /c/Users/NaokiIshigami/.claude/scripts/auto-commit-private.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "autoUpdatesChannel": "latest"
+}
