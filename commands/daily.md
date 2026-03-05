@@ -10,8 +10,8 @@ allowed-tools:
 # /daily - 日報生成
 
 ## 設定
-- 投稿先チャンネル: #times_nippou（ID: __POST_CHANNEL_ID__）
-- 対象ユーザー: __USER_DISPLAY_NAME__（__SLACK_USER_ID__ / @__SLACK_HANDLE__）
+- 投稿先チャンネル: #times_nippou（ID: C0AFMNT8PAS）
+- 対象ユーザー: Riko Gohda（U07E74J2GEM / @riko.gohda）
 
 ---
 
@@ -26,6 +26,15 @@ Task toolで以下のsubagentを起動する:
 ~/.claude/daily-worker.md を Read ツールで読み、その指示に従ってデータ収集・分析・レポート生成を実行してください。
 今日の日付は {TODAY} です。
 最終出力として ===MAIN=== と ===THREAD=== のマーカーで区切った2ブロックのSlack mrkdwnテキストを返してください。
+
+## アウトプットの定義（主要アウトプットセクションの構成基準）
+
+以下を中心に構成すること:
+1. **Claudeでのシステム改修** — Claude Code/Codexで実装・修正・改善したもの（スクリプト、スキル、PR等）
+2. **Notion議事録の作成とネクストアクション設定** — 当日作成した議事録、設定したアクションアイテム
+3. **Slackでの提案・アウトプット発言** — 自分が方針提案・判断表明・結論を出した発言（単なる確認・返答は除く）
+
+上記に該当しない「調整・連絡・承認フロー」は :white_circle: 低インパクトにまとめるか詳細ログに移す。
 ```
 
 subagentの結果を受け取り、Phase 2に進む。
