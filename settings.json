@@ -111,5 +111,6 @@
       }
     ]
   },
-  "autoUpdatesChannel": "latest"
+  "autoUpdatesChannel": "latest",
+  "model": "sonnet"
 }

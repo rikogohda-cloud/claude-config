@@ -22,6 +22,9 @@
   /weekly-slack-summary [期間]     週次Slackサマリー→Notion投稿+DB登録
   /weekly-finance                 週次ファイナンスメールサマリー
 
+与信判定
+  /bpsp-judge <org_id>            リアルタイム与信判定（BLUE/YELLOW/RED シグナル）
+
 債権回収
   /case-alert                     シグナルアラート（スプシ→DB更新→Slack通知）
   /case-guide [企業名]             フェーズ判定+チェックリスト自動生成

@@ -78,7 +78,18 @@ CACHE_FILE="$HOME/.claude/cache/daily/$TARGET_DATE.json"
 - times系チャンネルのbot通知
 - ワークフローのボタン操作のみ
 
-### Step 1-2: キャッシュ保存
+### Step 1-2: 前営業日のMore読み込み
+
+```bash
+MORE_FILE="$HOME/.claude/cache/daily/pending-more.json"
+```
+
+`pending-more.json` が存在する場合:
+- `next_business_day` が今日の日付と一致する場合のみ読み込む
+- JSONの `items` 配列をキャッシュの `pending_more` フィールドに含める
+- 一致しない場合は `pending_more: []` とする
+
+### Step 1-3: キャッシュ保存
 ```bash
 echo "$JSON_DATA" > "$CACHE_FILE"
 ```
@@ -109,6 +120,9 @@ fi
 2. **Slackスレッドの要約** → カテゴリ別に分類
 3. **時間推定** → 議事録作成時間（created_time〜last_edited_time + 15分）を含める
 4. **明日のTODO** → 議事録のAI（ユーザー担当分）を優先度順に並べる
+5. **前営業日のMore振り返り** → `pending_more` が空でない場合、各itemについてSlackメッセージ・Claude Codeセッション・メンションから「実践されたか」を判定する
+   - 実践済み: 該当アクティビティを根拠として示す
+   - 未実践: そのまま記載し「未」と表示
 
 ### Step 2-3: レポート生成
 
@@ -146,6 +160,11 @@ Notion: X件 / Claude Code: Xセッション
 
 *■ 時間配分*
 カテゴリA ████░░░░░░ X.Xh (XX%)
+
+*■ 前営業日のMore振り返り*（pending_moreが空の場合はセクションごとスキップ）
+- [実践済/未] More項目1 — 根拠or未実践の場合はそのまま記載
+- [実践済/未] More項目2
+...
 
 *■ 振り返り*
 ! ヒヤリハット - 具体的案件名、actionable改善案
